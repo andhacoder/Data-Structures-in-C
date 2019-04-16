@@ -45,9 +45,9 @@ void print()
 int main() 
 {
     head = NULL; //empty list
-    insert(2,1);//List:1
-    insert(3,2); // List: 1,2
-    insert(4,1); // List:4,1,2
-    insert(5,2); //List: 4,5,1,2
+    insert(2,1);//List:2
+    insert(3,2); // List: 2,3
+    insert(4,1); // List:4,2,3
+    insert(5,2); //List: 4,5,2,3
     print();
 }
