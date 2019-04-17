@@ -15,6 +15,11 @@ void insert(int data)
     struct node* temp = (node*)malloc(sizeof(struct node));
     temp->data = data;
     temp->next = NULL;
+    if( head == NULL)
+    {
+        head = temp;
+        return;
+    }
     struct node* temp2 = head;
     while(temp2 != NULL)
     {
