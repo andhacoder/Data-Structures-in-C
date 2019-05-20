@@ -10,7 +10,7 @@ struct node* head; //global so that we dont have to pass it as arguement to prin
 
 void insert(int value)
 {
-    struct node* temp = (node*)malloc(sizeof(struct node)); //typecasting as malloc returns a void pointer
+    struct node* temp = (struct node*)malloc(sizeof(struct node)); //typecasting as malloc returns a void pointer
     (*temp).data = value; //alt: temp->data = x;
     temp->next = head; // alt: (*temp).next = head;
     head = temp;
