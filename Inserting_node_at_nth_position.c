@@ -12,7 +12,7 @@ struct node* head;
 
 void insert(int data, int n)
 {
-    struct node* temp1 = (node*)malloc(sizeof(struct node));
+    struct node* temp1 = (struct node*)malloc(sizeof(struct node));
     temp1->data = data;
     temp1->next = NULL;
     if(n == 1)
