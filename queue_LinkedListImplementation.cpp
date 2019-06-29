@@ -1,55 +1,67 @@
-int arr[MAX];
-int front, rear;
+/*Queue - Linked List implementation*/
+#include<stdio.h>
+#include<stdlib.h>
+struct Node {
+	int data;
+	struct Node* next;
+};
+// Two glboal variables to store address of front and rear nodes. 
+struct Node* front = NULL;
+struct Node* rear = NULL;
 
-bool isEmpty(){
-return (front == -1 && rear == -1) ? true : false;
-}
-
-bool isFull(){
-return (rear+1)%MAX == front ? true : false;
-}
-
-void enQueue(int x){
-if(isFull()){
-printf("queue is full\n");
-return;
-}
-if(isEmpty())
-front = rear = 0;
-else
-rear = (rear+1)%MAX;
-
-arr[rear] = x;
-}
-void deQueue(){
-if(isEmpty()){
-printf("queue is empty\n");
-return;
-}
-else if(front == rear)
-front = rear = -1;
-else
-front = (front+1)%MAX;
-
+// To Enqueue an integer
+void Enqueue(int x) {
+	struct Node* temp = 
+		(struct Node*)malloc(sizeof(struct Node));
+	temp->data =x; 
+	temp->next = NULL;
+	if(front == NULL && rear == NULL){
+		front = rear = temp;
+		return;
+	}
+	rear->next = temp;
+	rear = temp;
 }
 
-void Print(){
-int length = (rear + MAX - front)%MAX + 1;
-int i;
-for( i = 0; i<length;i++){
-printf("%d ", arr[(front+i)%MAX]);
+// To Dequeue an integer.
+void Dequeue() {
+	struct Node* temp = front;
+	if(front == NULL) {
+		printf("Queue is Empty\n");
+		return;
+	}
+	if(front == rear) {
+		front = rear = NULL;
+	}
+	else {
+		front = front->next;
+	}
+	free(temp);
 }
-printf("\n");
+
+int Front() {
+	if(front == NULL) {
+		printf("Queue is empty\n");
+		return;
+	}
+	return front->data;
+}
+
+void Print() {
+	struct Node* temp = front;
+	while(temp != NULL) {
+		printf("%d ",temp->data);
+		temp = temp->next;
+	}
+	printf("\n");
 }
 
 int main(){
-front = -1;
-rear = -1;
-enQueue(2); Print();
-enQueue(4); Print();
-enQueue(6); Print();
-deQueue(); Print();
-enQueue(10); Print();
-return 0;
+	/* Drive code to test the implementation. */
+	// Printing elements in Queue after each Enqueue or Dequeue 
+	Enqueue(2); Print(); 
+	Enqueue(4); Print();
+	Enqueue(6); Print();
+	Dequeue();  Print();
+	Enqueue(8); Print();
 }
-
