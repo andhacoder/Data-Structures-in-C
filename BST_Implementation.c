@@ -12,7 +12,7 @@ struct BstNode{
 
 //Function to create a node in heap
 struct BstNode* GetNewNode(int data){
-    BstNode* newNode = (struct BstNode*)malloc(sizeof(struct BstNode)); //typecasting BstNode;
+   struct BstNode* newNode = (struct BstNode*)malloc(sizeof(struct BstNode)); //typecasting BstNode;
     newNode->data = data;
     newNode->left = newNode->right = NULL;
 }
