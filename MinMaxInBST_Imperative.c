@@ -1,5 +1,4 @@
-//Implementation of BST in C++
-//Simple program to create BST and search a value in it
+//Simple program to find minimum and maximum value in a BST 
 #include <stdio.h>
 #include <stdlib.h>
 
